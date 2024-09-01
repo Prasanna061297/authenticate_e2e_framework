@@ -1,0 +1,2 @@
+# cypress_e2e_framework
+Authenticate_amazon_javascript_e2e_farework
