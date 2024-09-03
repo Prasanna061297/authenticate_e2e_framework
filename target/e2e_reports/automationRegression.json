@@ -1,0 +1,209 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2024-09-03T03:56:01.153Z",
+    "end": "2024-09-03T03:57:38.593Z",
+    "duration": 97440
+  },
+  "results": [
+    {
+      "uuid": "5c6b9db4-86fd-4ece-9be4-b62d20d33765",
+      "title": "",
+      "fullFile": "cypress\\integration\\testSuitUI\\amazon_search_AddCart_Product.js",
+      "file": "cypress\\integration\\testSuitUI\\amazon_search_AddCart_Product.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8b554b6f-5326-4af8-a45a-2b333eec3b66",
+          "title": "Verify that user should be able to add items in the cart",
+          "fullFile": "cypress\\integration\\testSuitUI\\amazon_search_AddCart_Product.js",
+          "file": "cypress\\integration\\testSuitUI\\amazon_search_AddCart_Product.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify Search for a specified product",
+              "fullTitle": "Verify that user should be able to add items in the cart Verify Search for a specified product",
+              "timedOut": null,
+              "duration": 16173,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Initialize an object to store product details with arrays\namazonHomePage.initiateSearch(searchQuery);\namazonHomePage.firstProductNameSearchInfo().then(productName => {\n  expect(productName).to.not.be.empty;\n  cy.log('Verified Product Name: ' + productName);\n  productDetails.names.push(productName);\n});\namazonHomePage.firstProductPriceSearchInfo().then(productPrice => {\n  expect(productPrice).to.not.be.empty;\n  cy.log('Verified Product Price: ' + productPrice);\n  productDetails.prices.push(productPrice);\n});\namazonHomePage.firstProductLinkSearchInfo().then(productLink => {\n  expect(productLink).to.not.be.empty;\n  cy.log('Verified Product Link: ' + productLink);\n  productDetails.links.push(productLink);\n  // Write the product details to response.json\n  cy.writeFile('cypress/fixtures/response.json', productDetails);\n});",
+              "err": {},
+              "uuid": "81b3cad0-19b0-4c39-969e-59560ae2f193",
+              "parentUUID": "8b554b6f-5326-4af8-a45a-2b333eec3b66",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Navigate to Add to Cart Screen:",
+              "fullTitle": "Verify that user should be able to add items in the cart Navigate to Add to Cart Screen:",
+              "timedOut": null,
+              "duration": 43866,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/\");\namazonHomePage.initiateSearch(searchQuery);\namazonHomePage.loadFirstCardOnResultPage();\namazonHomePage.naviagateANDaddToCart();\namazonHomePage.naviagateToProductBuy();",
+              "err": {},
+              "uuid": "4f06f828-6172-47c6-970c-8cab3ab1f539",
+              "parentUUID": "8b554b6f-5326-4af8-a45a-2b333eec3b66",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "81b3cad0-19b0-4c39-969e-59560ae2f193",
+            "4f06f828-6172-47c6-970c-8cab3ab1f539"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 60039,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "fe5fb881-1a8c-4d58-bbbf-b84820e98b09",
+      "title": "",
+      "fullFile": "cypress\\integration\\testSuitAPI\\amazon_api_test.js",
+      "file": "cypress\\integration\\testSuitAPI\\amazon_api_test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "95692f8d-b711-4bb5-89f7-ac36b2511e17",
+          "title": "Amazon Product Search API Test",
+          "fullFile": "cypress\\integration\\testSuitAPI\\amazon_api_test.js",
+          "file": "cypress\\integration\\testSuitAPI\\amazon_api_test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validate the response structure and content",
+              "fullTitle": "Amazon Product Search API Test Validate the response structure and content",
+              "timedOut": null,
+              "duration": 2478,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Make a request to the API URL\ncy.request({\n  method: 'GET',\n  url: apiUrl\n}).then(response => {\n  // Validate the response status code\n  expect(response.status).to.eq(200);\n  expect(response.body).to.contain('Titan');\n});",
+              "err": {},
+              "uuid": "be961325-b627-437e-ad48-f6c89eaca46c",
+              "parentUUID": "95692f8d-b711-4bb5-89f7-ac36b2511e17",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate product name in API response against frontend automation",
+              "fullTitle": "Amazon Product Search API Test Validate product name in API response against frontend automation",
+              "timedOut": null,
+              "duration": 2702,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('response.json').then(expectedData => {\n  cy.request({\n    method: 'GET',\n    url: apiUrl\n  }).then(response => {\n    // Validate the response status code\n    expect(response.status).to.eq(200);\n    cy.log(\"###################################\", expectedData);\n    const productNamesFromApi = response.body.names;\n    // Validate that the API response contains at least one of the expected product names\n    expectedData.names.forEach(expectedName => {\n      cy.log(\"################### inside  api data ################\", productNamesFromApi);\n      cy.log(\"################ inside for each value json data ###################\", expectedName);\n      //   expect(productNamesFromApi).to.include(expectedName);\n    });\n  });\n});",
+              "err": {},
+              "uuid": "150b5b6c-14f9-456a-aa96-e6b059399cd6",
+              "parentUUID": "95692f8d-b711-4bb5-89f7-ac36b2511e17",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "be961325-b627-437e-ad48-f6c89eaca46c",
+            "150b5b6c-14f9-456a-aa96-e6b059399cd6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5180,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "automationRegression",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportFilename": "automationRegression",
+        "reportPageTitle": "UI Regression",
+        "reportDir": "target\\e2e_reports\\.jsons",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "clearOldScreenshots": true,
+        "saveJson": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

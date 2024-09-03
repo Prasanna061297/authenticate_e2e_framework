@@ -44,9 +44,8 @@ class amazonHomePage extends BasePage{
     initiateSearch(product)
     {
         // this.setDelay(4000)
-        cy.waitForStableDOM();
         this.typeAndVerifyText(this.searchBar, product)
-        this.getElementAndClick(this.submitSearchButton)
+        this.getElementAndClick(this.submitSearchButton).waitForStableDOM()
     }
 
     /**
